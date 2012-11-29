@@ -1,32 +1,20 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package se.purplescout.purplemow.bwf.dsp.impl;
+package se.purplescout.purplemow.bwf.dsp;
 
 import java.io.IOException;
 import java.util.Random;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import org.junit.BeforeClass;
-import se.purplescout.purplemow.bwf.dsp.Filter;
-import se.purplescout.purplemow.bwf.dsp.Oscillator;
-import se.purplescout.purplemow.bwf.dsp.PLL;
 import se.purplescout.purplemow.bwf.wave.WaveFileUtil;
 
 /**
  *
- * @author martin
+ * @author Martin Andersson
  */
 public class SimplePLLTest {
 
 	@Test
 	public void test1() throws IOException, UnsupportedAudioFileException {
-		PLL pll = new SimplePLL(44100.0D);
+		SimplePLL pll = new SimplePLL(44100.0D);
 //		Oscillator oscillator = new SquareWaveOscillator();
 //		oscillator.setFrequency(10.0D);
 
@@ -37,7 +25,7 @@ public class SimplePLLTest {
 
 		for (int i = 0; i < in.length; i++) {
 //			double osc = oscillator.getValue();
-			PLL.Output out = pll.pll(in[i]);
+			Output out = pll.pll(in[i]);
 
 			oscOut[i] = out.getOscillator();
 			fmOut[i] = out.getFm();

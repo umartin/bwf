@@ -1,6 +1,5 @@
 package se.purplescout.purplemow.bwf.wave;
 
-import com.sun.corba.se.impl.oa.toa.TOAImpl;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;

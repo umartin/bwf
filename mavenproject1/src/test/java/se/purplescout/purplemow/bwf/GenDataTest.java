@@ -1,20 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package se.purplescout.purplemow.bwf;
 
 import java.io.IOException;
 import java.util.Random;
 import org.junit.AfterClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.BeforeClass;
+import org.junit.Test;
 import se.purplescout.purplemow.bwf.wave.WaveFileUtil;
 
 /**
  *
- * @author martin
+ * @author Martin Andersson
  */
 public class GenDataTest {
 

@@ -1,12 +1,10 @@
-package se.purplescout.purplemow.bwf.dsp.impl;
-
-import se.purplescout.purplemow.bwf.dsp.Filter;
+package se.purplescout.purplemow.bwf.dsp;
 
 /**
  *
  * @author Martin Andersson
  */
-public class SinglePoleLPIIRFilter implements Filter {
+public class SinglePoleLPIIRFilter {
 
 	private final double damping;
 	private double lastVal;

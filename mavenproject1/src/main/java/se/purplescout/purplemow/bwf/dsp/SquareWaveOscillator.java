@@ -1,12 +1,10 @@
-package se.purplescout.purplemow.bwf.dsp.impl;
-
-import se.purplescout.purplemow.bwf.dsp.Oscillator;
+package se.purplescout.purplemow.bwf.dsp;
 
 /**
  *
  * @author Martin Andersson
  */
-public class SquareWaveOscillator implements Oscillator {
+public class SquareWaveOscillator {
 
 	private double cycleTime;
 	private double stepCounter;

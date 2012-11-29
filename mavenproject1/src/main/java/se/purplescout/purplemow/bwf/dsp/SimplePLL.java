@@ -1,20 +1,15 @@
-package se.purplescout.purplemow.bwf.dsp.impl;
-
-import se.purplescout.purplemow.bwf.dsp.Filter;
-import se.purplescout.purplemow.bwf.dsp.Oscillator;
-import se.purplescout.purplemow.bwf.dsp.PLL;
-import se.purplescout.purplemow.bwf.dsp.PhaseDetector;
+package se.purplescout.purplemow.bwf.dsp;
 
 /**
  *
  * @author Martin Andersson
  */
-public class SimplePLL implements PLL {
+public class SimplePLL {
 
-	private Oscillator oscillator;
-	private Filter filter1;
-	private Filter filter2;
-	private Filter filter3;
+	private SquareWaveOscillator oscillator;
+	private SinglePoleLPIIRFilter filter1;
+	private SinglePoleLPIIRFilter filter2;
+	private SinglePoleLPIIRFilter filter3;
 
 	private final double initialCycleTime = 10.0D;
 

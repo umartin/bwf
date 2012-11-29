@@ -1,12 +1,9 @@
-package se.purplescout.purplemow.bwf.dsp.impl;
+package se.purplescout.purplemow.bwf.dsp;
 
 import java.io.IOException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import org.junit.Test;
-import se.purplescout.purplemow.bwf.dsp.Filter;
-import se.purplescout.purplemow.bwf.dsp.Oscillator;
 import se.purplescout.purplemow.bwf.wave.WaveFileUtil;
-
 
 /**
  *
@@ -16,8 +13,8 @@ public class SimplePoleLPIIRFilterTest {
 
 //	@Test
 	public void test1() {
-		Filter filter = new SinglePoleLPIIRFilter(0.025D);
-		Oscillator oscillator = new SquareWaveOscillator(44100.0D);
+		SinglePoleLPIIRFilter filter = new SinglePoleLPIIRFilter(0.025D);
+		SquareWaveOscillator oscillator = new SquareWaveOscillator(44100.0D);
 		oscillator.setFrequency(10.0D);
 
 		for (int i = 0; i < 40; i++) {
@@ -30,7 +27,7 @@ public class SimplePoleLPIIRFilterTest {
 	
 	@Test
 	public void test() throws IOException, UnsupportedAudioFileException {
-		Filter filter = new SinglePoleLPIIRFilter(44100.0D, 500.0D);
+		SinglePoleLPIIRFilter filter = new SinglePoleLPIIRFilter(44100.0D, 500.0D);
 		double[] samples = WaveFileUtil.read16BitMonoWave("/home/martin/noise.wav");
 		double[] out = new double[samples.length];
 		for (int i = 0; i < samples.length; i++) {
