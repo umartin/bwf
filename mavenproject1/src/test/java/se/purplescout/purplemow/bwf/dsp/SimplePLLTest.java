@@ -58,9 +58,9 @@ public class SimplePLLTest {
 		System.out.println("result" + result);
 		System.out.println("expected" + dataList);
 
-		WaveFileUtil.write16BitMonoWave("/home/martin/osc.wav", oscOut);
-		WaveFileUtil.write16BitMonoWave("/home/martin/am.wav", amOut);
-		WaveFileUtil.write16BitMonoWave("/home/martin/fm.wav", fmOut);
+//		WaveFileUtil.write16BitMonoWave("/home/martin/osc.wav", oscOut);
+//		WaveFileUtil.write16BitMonoWave("/home/martin/am.wav", amOut);
+//		WaveFileUtil.write16BitMonoWave("/home/martin/fm.wav", fmOut);
 	}
 
 	List<Boolean> parseData(double[] osc, double[] fm) {

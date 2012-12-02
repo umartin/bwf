@@ -24,7 +24,7 @@ public class GenDataTest {
 	public static void tearDownClass() throws Exception {
 	}
 
-	@Test
+//	@Test
 	public void testGenSignal() throws IOException {
 		boolean[] data = new boolean[100];
 		Random rnd = new Random();
