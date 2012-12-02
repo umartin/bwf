@@ -32,9 +32,9 @@ public class SimplePLLTest {
 			in[i] = sine[i] * data[i] + noise[i];
 		}
 
-		WaveFileUtil.write16BitMonoWave("/home/martin/in.wav", in);
-		WaveFileUtil.write16BitMonoWave("/home/martin/sine.wav", sine);
-		WaveFileUtil.write16BitMonoWave("/home/martin/data.wav", data);
+//		WaveFileUtil.write16BitMonoWave("/home/martin/in.wav", in);
+//		WaveFileUtil.write16BitMonoWave("/home/martin/sine.wav", sine);
+//		WaveFileUtil.write16BitMonoWave("/home/martin/data.wav", data);
 	}
 
 	@Test
