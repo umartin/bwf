@@ -13,12 +13,12 @@ public class SimplePLL {
 
 	private final double initialCycleTime = 10.0D;
 
-	public SimplePLL(double sampleFreq) {
-		oscillator = new SquareWaveOscillator(sampleFreq);
+	public SimplePLL(double sampleFreq, double baseFreq) {
+		oscillator = new SquareWaveOscillator(sampleFreq, baseFreq);
 		oscillator.setFrequency(initialCycleTime);
-		filter1 = new SinglePoleLPIIRFilter(sampleFreq, 2500.0D);
-		filter2 = new SinglePoleLPIIRFilter(sampleFreq, 2500.0D);
-		filter3 = new SinglePoleLPIIRFilter(sampleFreq, 10000.0D);
+		filter1 = new SinglePoleLPIIRFilter(sampleFreq, baseFreq / 2.0D);
+		filter2 = new SinglePoleLPIIRFilter(sampleFreq, baseFreq / 2.0D);
+		filter3 = new SinglePoleLPIIRFilter(sampleFreq, baseFreq * 2.0D);
 	}
 
 	public Output pll(double input) {

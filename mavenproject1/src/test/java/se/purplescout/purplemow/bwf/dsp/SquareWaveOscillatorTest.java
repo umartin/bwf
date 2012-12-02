@@ -1,5 +1,6 @@
 package se.purplescout.purplemow.bwf.dsp;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -8,14 +9,23 @@ import org.junit.Test;
  */
 public class SquareWaveOscillatorTest {
 
+	private static final double SAMPLE_FREQ = 44100.0D;
+
 	@Test
 	public void test1() {
-		SquareWaveOscillator oscillator = new SquareWaveOscillator(44100.0D);
-		oscillator.setFrequency(10.0D);
+		double testFreq = 4410.0D;
 
-		for (int i = 0; i < 40; i++) {
-			System.out.println(oscillator.getValue() + " 90: " + oscillator.get90DegreesValue());
+		SquareWaveOscillator oscillator = new SquareWaveOscillator(SAMPLE_FREQ, testFreq);
+
+		double[] samples = new double[100000];
+
+		for (int i = 0; i < samples.length; i++) {
+			samples[i] = oscillator.getValue();
 			oscillator.step();
 		}
+
+		int freq = TestUtil.countFrequency(SAMPLE_FREQ, samples);
+
+		Assert.assertEquals(testFreq, (double) freq, 10.0D);
 	}
 }

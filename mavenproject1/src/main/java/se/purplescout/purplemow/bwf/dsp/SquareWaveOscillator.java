@@ -10,9 +10,13 @@ public class SquareWaveOscillator {
 	private double stepCounter;
 
 	private final double sampleFreq;
+	private final double baseFreq;
 
-	public SquareWaveOscillator(double sampleFreq) {
+	public SquareWaveOscillator(double sampleFreq, double baseFreq) {
 		this.sampleFreq = sampleFreq;
+		this.baseFreq = baseFreq;
+
+		cycleTime = sampleFreq / baseFreq;
 	}
 
 	public void setFrequency(double cycleTime) {
