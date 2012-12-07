@@ -4,7 +4,7 @@ package se.purplescout.purplemow.bwf.dsp;
  *
  * @author Martin Andersson
  */
-public class SimplePLL {
+public class CostasLoop {
 
 	private SquareWaveOscillator oscillator;
 	private SinglePoleLPIIRFilter filter1;
@@ -13,7 +13,7 @@ public class SimplePLL {
 
 	private final double initialCycleTime = 10.0D;
 
-	public SimplePLL(double sampleFreq, double baseFreq) {
+	public CostasLoop(double sampleFreq, double baseFreq) {
 		oscillator = new SquareWaveOscillator(sampleFreq, baseFreq);
 		oscillator.setFrequency(initialCycleTime);
 		filter1 = new SinglePoleLPIIRFilter(sampleFreq, baseFreq / 2.0D);

@@ -4,16 +4,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author Martin Andersson
  */
-public class BitInputStream extends InputStream implements BitWriter {
+public class BitInputStream extends InputStream implements OutStream<Boolean> {
 
-	private final ShiftRegister sr = new ShiftRegister(16);
+	private final ShiftRegister sr = new ShiftRegister(ChannelCodec.BITS_PER_BYTE);
 	private final ChannelCodec cc = new ChannelCodec();
 	private BlockingQueue<Integer> queue = new LinkedBlockingQueue<Integer>();
 
@@ -41,7 +39,8 @@ public class BitInputStream extends InputStream implements BitWriter {
 		return read;
 	}
 
-	public void write(boolean value) {
+	@Override
+	public void write(Boolean value) {
 		sr.push(value);
 
 		int data = sr.getData();

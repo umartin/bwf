@@ -4,7 +4,7 @@ package se.purplescout.purplemow.bwf.dsp;
  *
  * @author Martin Andersson
  */
-public interface BitWriter {
+public interface OutStream<T> {
 
-	void write(boolean value);
+	void write(T value);
 }

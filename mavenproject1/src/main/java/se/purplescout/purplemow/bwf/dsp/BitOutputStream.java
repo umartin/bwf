@@ -9,11 +9,11 @@ import java.io.OutputStream;
  */
 public class BitOutputStream extends OutputStream {
 
-	private final ShiftRegister sr = new ShiftRegister(16);
+	private final ShiftRegister sr = new ShiftRegister(ChannelCodec.BITS_PER_BYTE);
 	private final ChannelCodec cc = new ChannelCodec();
-	private final BitWriter bitWriter;
+	private final OutStream<Boolean> bitWriter;
 
-	public BitOutputStream(BitWriter bitWriter) {
+	public BitOutputStream(OutStream<Boolean> bitWriter) {
 		this.bitWriter = bitWriter;
 	}
 

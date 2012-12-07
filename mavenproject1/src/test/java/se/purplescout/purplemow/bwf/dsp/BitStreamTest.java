@@ -1,12 +1,10 @@
 package se.purplescout.purplemow.bwf.dsp;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
-import java.nio.CharBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;
@@ -24,9 +22,9 @@ public class BitStreamTest {
 	public void testOutputStream() throws IOException {
 		final List<Boolean> result = new ArrayList<Boolean>();
 
-		BitOutputStream out = new BitOutputStream(new BitWriter() {
+		BitOutputStream out = new BitOutputStream(new OutStream<Boolean>() {
 
-			public void write(boolean value) {
+			public void write(Boolean value) {
 				result.add(value);
 			}
 		});
@@ -63,19 +61,19 @@ public class BitStreamTest {
 
 	@Test
 	public void testStream() throws IOException {
-		String message = "aalkjs slkdjf ij wie\n";
+		String msg = "aalkjs slkdjf ij wie\n";
 
 		BitInputStream in = new BitInputStream();
 		BitOutputStream out = new BitOutputStream(in);
 
 		Writer writer = new OutputStreamWriter(out);
-		writer.write(message);
+		writer.write(msg);
 		writer.flush();
 
-		Assert.assertEquals(message.length(), in.available());
+		Assert.assertEquals(msg.length(), in.available());
 		
 		Reader reader = new InputStreamReader(in);
-		char[] buffer = new char[message.length()];
+		char[] buffer = new char[msg.length()];
 		reader.read(buffer);
 
 		StringBuilder sb = new StringBuilder();
@@ -84,7 +82,7 @@ public class BitStreamTest {
 		String receivedMessage = sb.toString();
 
 
-		Assert.assertEquals(message, receivedMessage);
+		Assert.assertEquals(msg, receivedMessage);
 	}
 
 }

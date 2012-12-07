@@ -12,6 +12,8 @@ package se.purplescout.purplemow.bwf.dsp;
  */
 public class ChannelCodec {
 
+	public static final int BITS_PER_BYTE = 16;
+
 	// 1111 1000 0000 0000
 	private static final int HEADER_MASK = 0xf800;
 
